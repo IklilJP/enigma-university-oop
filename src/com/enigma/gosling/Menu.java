@@ -1,6 +1,5 @@
 package com.enigma.gosling;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
@@ -145,49 +144,14 @@ public class Menu {
     private void searchBookByTitle() {
         System.out.print("Masukkan judul buku: ");
         String title = scanner.nextLine();
-
-        Book book = service.searchBookByTitle(title);
-        if (book != null) {
-            System.out.println("Buku ditemukan:");
-            System.out.println("Kode: " + book.getCode());
-            System.out.println("Judul: " + book.getTitle());
-
-            if (book instanceof Novel novel) {
-                System.out.println("Penerbit: " + novel.getPublisher());
-                System.out.println("Tahun Terbit: " + novel.getYearPublished());
-                System.out.println("Penulis: " + novel.getAuthor());
-            } else if (book instanceof Magazine magazine) {
-                System.out.println("Periode Terbit: " + magazine.getPublicationPeriod());
-                System.out.println("Tahun Terbit: " + magazine.getYearPublished());
-            }
-        } else {
-            System.out.println("Buku dengan judul tersebut tidak ditemukan.");
-        }
+        service.searchBookByTitle(title);
         displayMenu();
     }
 
     private void searchBookByCode() {
         System.out.print("Masukkan kode buku: ");
         String code = scanner.nextLine();
-        Book book = service.searchBookByCode(code);
-        if (book != null) {
-            if (book instanceof Novel novel) {
-                System.out.println("Novel");
-                System.out.println("Kode: " + book.getCode());
-                System.out.println("Judul: " + novel.getTitle());
-                System.out.println("Penerbit: " + novel.getPublisher());
-                System.out.println("Tahun Terbit: " + novel.getYearPublished());
-                System.out.println("Penulis: " + novel.getAuthor());
-            } else if (book instanceof Magazine magazine) {
-                System.out.println("Majalah");
-                System.out.println("Kode: " + book.getCode());
-                System.out.println("Judul: " + magazine.getTitle());
-                System.out.println("Periode Terbit: " + magazine.getPublicationPeriod());
-                System.out.println("Tahun Terbit: " + magazine.getYearPublished());
-            }
-        } else {
-            System.out.println("Buku dengan kode tersebut tidak ditemukan.");
-        }
+        service.searchBookByCode(code);
         displayMenu();
     }
 
@@ -200,29 +164,7 @@ public class Menu {
     }
 
     private void displayAllBooks() {
-        List<Book> books = service.getAllBooks();
-        if (books.isEmpty()) {
-            System.out.println("Tidak ada buku yang tersedia.");
-        } else {
-            System.out.println("Daftar buku:");
-            for (Book book : books) {
-                if (book instanceof Novel novel) {
-                    System.out.println("Novel");
-                    System.out.println("Kode: " + book.getCode());
-                    System.out.println("Judul: " + book.getTitle());
-                    System.out.println("Penerbit: " + novel.getPublisher());
-                    System.out.println("Tahun Terbit: " + novel.getYearPublished());
-                    System.out.println("Penulis: " + novel.getAuthor());
-                } else if (book instanceof Magazine magazine) {
-                    System.out.println("Majalah");
-                    System.out.println("Kode: " + book.getCode());
-                    System.out.println("Judul: " + book.getTitle());
-                    System.out.println("Periode Terbit: " + magazine.getPublicationPeriod());
-                    System.out.println("Tahun Terbit: " + magazine.getYearPublished());
-                }
-                System.out.println();
-            }
-        }
+        service.getAllBooks();
         displayMenu();
     }
 

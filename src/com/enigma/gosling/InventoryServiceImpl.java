@@ -30,37 +30,71 @@ public class InventoryServiceImpl implements InventoryService {
     }
 
     @Override
-    public Book searchBookByTitle(String title) {
+    public void searchBookByTitle(String title) {
+        boolean found = false;
         if (title == null || title.isEmpty()) {
             throw new IllegalArgumentException("Title cannot be null or empty");
         }
 
         for (Book book : books) {
             if (book.getTitle().equalsIgnoreCase(title)) {
-                return book;
-            }
-        }
+                System.out.println("Buku ditemukan:");
+                System.out.println("Kode: " + book.getCode());
+                System.out.println("Judul: " + book.getTitle());
 
-        return null;
+                if (book instanceof Novel novel) {
+                    System.out.println("Penerbit: " + novel.getPublisher());
+                    System.out.println("Tahun Terbit: " + novel.getYearPublished());
+                    System.out.println("Penulis: " + novel.getAuthor());
+                } else if (book instanceof Magazine magazine) {
+                    System.out.println("Periode Terbit: " + magazine.getPublicationPeriod());
+                    System.out.println("Tahun Terbit: " + magazine.getYearPublished());
+                }
+
+                found = true;
+            }
+
+        }
+        if (!found) {
+            System.out.println("Buku tidak ditemukan");
+        }
     }
 
     @Override
-    public Book searchBookByCode(String code) {
+    public void searchBookByCode(String code) {
+        boolean found = false;
         if (code == null || code.isEmpty()) {
             throw new IllegalArgumentException("Code cannot be null or empty");
         }
 
         for (Book book : books) {
             if (book.getCode().equalsIgnoreCase(code)) {
-                return book;
+                if (book instanceof Novel novel) {
+                    System.out.println("Novel");
+                    System.out.println("Kode: " + book.getCode());
+                    System.out.println("Judul: " + novel.getTitle());
+                    System.out.println("Penerbit: " + novel.getPublisher());
+                    System.out.println("Tahun Terbit: " + novel.getYearPublished());
+                    System.out.println("Penulis: " + novel.getAuthor());
+                } else if (book instanceof Magazine magazine) {
+                    System.out.println("Majalah");
+                    System.out.println("Kode: " + book.getCode());
+                    System.out.println("Judul: " + magazine.getTitle());
+                    System.out.println("Periode Terbit: " + magazine.getPublicationPeriod());
+                    System.out.println("Tahun Terbit: " + magazine.getYearPublished());
+                }
+                found = true;
+                break;
             }
         }
-
-        return null;
+        if (!found) {
+            System.out.println("Buku tidak ditemukan");
+        }
     }
 
     @Override
     public void deleteBookByCode(String code) {
+
         if (code == null || code.isEmpty()) {
             throw new IllegalArgumentException("Code cannot be null or empty");
         }
@@ -73,7 +107,22 @@ public class InventoryServiceImpl implements InventoryService {
     }
 
     @Override
-    public List<Book> getAllBooks(){
-        return books;
+    public void getAllBooks(){
+        for (Book book : books) {
+            if (book instanceof Novel novel) {
+                System.out.println("Novel");
+                System.out.println("Kode: " + book.getCode());
+                System.out.println("Judul: " + novel.getTitle());
+                System.out.println("Penerbit: " + novel.getPublisher());
+                System.out.println("Tahun Terbit: " + novel.getYearPublished());
+                System.out.println("Penulis: " + novel.getAuthor());
+            } else if (book instanceof Magazine magazine) {
+                System.out.println("Majalah");
+                System.out.println("Kode: " + book.getCode());
+                System.out.println("Judul: " + magazine.getTitle());
+                System.out.println("Periode Terbit: " + magazine.getPublicationPeriod());
+                System.out.println("Tahun Terbit: " + magazine.getYearPublished());
+            }
+        }
     }
 }

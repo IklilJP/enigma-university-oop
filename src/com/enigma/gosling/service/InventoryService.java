@@ -9,11 +9,11 @@ public interface InventoryService {
 
     void addBook(Book book);
 
-    Book searchBookByTitle(String title);
+    void searchBookByTitle(String title);
 
-    Book searchBookByCode(String code);
+    void searchBookByCode(String code);
 
     void deleteBookByCode(String code);
 
-    List<Book> getAllBooks();
+    void getAllBooks();
 }
