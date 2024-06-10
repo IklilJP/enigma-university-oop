@@ -3,11 +3,10 @@ package com.enigma.gosling;
 import com.enigma.gosling.service.InventoryService;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class InventoryServiceImpl implements InventoryService {
-    private List<Book> books = new ArrayList<>();
+    private final List<Book> books;
 
     public InventoryServiceImpl() {
         try {

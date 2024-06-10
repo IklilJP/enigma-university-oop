@@ -1,0 +1,4 @@
+111-A-00001,aaa,aaa,111,aaa
+222-B-00001,bbb,mingguan,222
+333-A-00002,ccc,ccc,333,ccc
+444-B-00002,ddd,bulanan,444

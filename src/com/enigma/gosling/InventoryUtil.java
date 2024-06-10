@@ -4,16 +4,9 @@ public class InventoryUtil {
     private static int counterMagazine = 0;
     private static int counterNovel = 0;
 
-    public static int getCounterMagazine() {
-        return counterMagazine;
-    }
 
     public static void setCounterMagazine(int counterMagazine) {
         InventoryUtil.counterMagazine = counterMagazine;
-    }
-
-    public static int getCounterNovel() {
-        return counterNovel;
     }
 
     public static void setCounterNovel(int counterNovel) {

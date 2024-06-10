@@ -1,9 +1,9 @@
 package com.enigma.gosling;
 
 public class Novel extends Book {
-    private String publisher;
-    private int yearPublished;
-    private String author;
+    private final String publisher;
+    private final int yearPublished;
+    private final String author;
 
     public Novel(String code, String title, String publisher, int yearPublished, String author) {
         super(code, title);
@@ -16,25 +16,15 @@ public class Novel extends Book {
         return publisher;
     }
 
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
-
     public int getYearPublished() {
         return yearPublished;
-    }
-
-    public void setYearPublished(int yearPublished) {
-        this.yearPublished = yearPublished;
     }
 
     public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
+
 
     @Override
     public String getCode() {

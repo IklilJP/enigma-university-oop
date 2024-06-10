@@ -13,11 +13,4 @@ public abstract class Book {
 
     public abstract String getTitle();
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 }
