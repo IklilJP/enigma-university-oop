@@ -89,11 +89,11 @@ public class Menu {
 
             do {
                 System.out.print("Masukkan penulis novel: ");
-                 author = scanner.nextLine();
-                 if (author.isEmpty()) {
+                author = scanner.nextLine();
+                if (author.isEmpty()) {
                     System.out.println("Penulis tidak boleh kosong");
                 }
-            }while (author.isEmpty());
+            } while (author.isEmpty());
 
 
             code = InventoryUtil.generateNovelCode(new Novel(stringYearPublished, title, publisher, yearPublished, author));
@@ -109,7 +109,7 @@ public class Menu {
                 if (title.isEmpty()) {
                     System.out.println("Judul tidak boleh kosong");
                 }
-            }while (title.isEmpty());
+            } while (title.isEmpty());
 
             do {
                 System.out.print("Masukkan periode terbit majalah (mingguan/bulanan): ");

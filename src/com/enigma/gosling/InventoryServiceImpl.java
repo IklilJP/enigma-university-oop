@@ -107,7 +107,7 @@ public class InventoryServiceImpl implements InventoryService {
     }
 
     @Override
-    public void getAllBooks(){
+    public void getAllBooks() {
         for (Book book : books) {
             if (book instanceof Novel novel) {
                 System.out.println("Novel");

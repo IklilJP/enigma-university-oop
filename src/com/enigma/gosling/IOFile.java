@@ -18,14 +18,14 @@ public class IOFile {
     }
 
     public static List<Book> loadData() throws IOException {
-         int counterMagazine = 0;
-         int counterNovel = 0;
+        int counterMagazine = 0;
+        int counterNovel = 0;
         try (BufferedReader reader = new BufferedReader(new FileReader(fileBook))) {
             List<Book> lines = new ArrayList<>();
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
-               String []code = data[0].split("-");
+                String[] code = data[0].split("-");
                 if (code[1].equalsIgnoreCase("A")) {
                     Novel novel = new Novel(data[0], data[1], data[2], Integer.parseInt(data[3]), data[4]);
                     if (counterNovel < Integer.parseInt(code[2])) {
@@ -46,7 +46,6 @@ public class IOFile {
             return lines;
         }
     }
-
 
 
 }

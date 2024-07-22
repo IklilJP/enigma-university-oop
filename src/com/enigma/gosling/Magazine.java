@@ -22,7 +22,6 @@ public class Magazine extends Book {
     }
 
 
-
     @Override
     public String getCode() {
         return code;

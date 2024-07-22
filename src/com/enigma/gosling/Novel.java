@@ -24,8 +24,6 @@ public class Novel extends Book {
         return author;
     }
 
-
-
     @Override
     public String getCode() {
         return code;

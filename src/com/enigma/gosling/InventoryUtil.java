@@ -4,7 +4,6 @@ public class InventoryUtil {
     private static int counterMagazine = 0;
     private static int counterNovel = 0;
 
-
     public static void setCounterMagazine(int counterMagazine) {
         InventoryUtil.counterMagazine = counterMagazine;
     }
